@@ -1,0 +1,46 @@
+## 运算符
+
+### 空值合并运算符??
+
+为null或undefined的未定义值提供默认值
+
+```js
+a ?? b // if a is null or undefined, a = b
+```
+
+> [!caution]
+>
+> 禁止将?? 和&&和||一起使用，除非括号明确指定优先级
+
+## 类型转换
+
+### 显示类型转换
+
+
+
+```js
+// 自动类型转换(隐式)
+'4' - '3' // 1
+"String" + 2 // 当+的一个操作数是字符串
+!!x // 等价于Boolean()
+
+// 显式类型转换 使用函数
+Number() // 返回数值或NaN
+String() //
+Boolean()
+```
+
+### Number()
+
+示例
+
+ ```
+ parseInt('42 cats') // 42
+ Number('42 cats') // NaN
+ Number({a: 1}) // NaN  
+ Number([1, 2, 3]) // NaN
+ Number([5]) // 5
+ ```
+
+## 错误机制处理
+

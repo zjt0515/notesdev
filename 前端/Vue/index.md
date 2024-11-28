@@ -1,0 +1,111 @@
+## Vue面试
+
+- https://vue3js.cn/interview
+- https://www.bilibili.com/video/BV11i4y1Q7H2
+
+# 环境配置
+
+## 相关链接
+
+[vue官网](https://cn.vuejs.org)
+
+## 创建工程
+
+### 基于 [vite](https://vitejs.cn) 创建
+
+```shell
+npm create vite@latest
+npm create vue@latest
+```
+
+![image-20240525200235148](./images/image-20240525200235148.png)
+
+| 目录/文件         | 作用       |      |
+| ----------------- | ---------- | ---- |
+| index.html        | 入口文件   |      |
+| package-lock.json | 包管理文件 |      |
+| package.json      | 包管理文件 |      |
+| vite.config.ts    |            |      |
+| src               | 源代码     |      |
+
+### src
+
+```ts
+// main.ts
+import { createApp } from "vue"; //用于创建引用
+import App from './App.vue'//App根组件
+createApp(App).mount('#app')//创建一个应用实例
+```
+
+```vue
+<!-- App.vue -->
+<!-- 组件结构 -->
+<template>
+</template>
+<!-- 组件脚本 -->
+<script lang="ts">
+    //默认暴露
+    export default {
+        name:'App' //组件名
+    }
+</script>
+<!-- 组件样式 -->
+<style>
+</style>
+```
+
+
+
+## 整合Tailwind CSS
+
+```shell
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+……懒得搞了
+
+
+
+## 整合Element Plus
+
+[ElementPlus](https://element-plus.org/zh-CN/guide/installation.html)
+
+按照官网安装后，再完成按需导入配置
+
+
+
+## 配置杂项
+
+### Vite 配置路径别名
+
+在`vite.config.js`vite配置文件
+
+```js
+import { fileURLToPath, URL } from "node:url";
+
+export default defineConfig({
+  plugins: [
+    vue(),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  }
+})
+```
+
+# Vue工具链
+
+参考资料https://devtools.vuejs.org/
+
+## 项目脚手架
+
+- Vite
+- VueCLI
+
+## 格式化工具
+
+- [Vue - Official](https://github.com/vuejs/language-tools) VS Code 插件为 Vue 单文件组件提供了开箱即用的格式化功能。
+- 除此之外，[Prettier](https://prettier.io/) 也提供了内置的 Vue 单文件组件格式化支持。
