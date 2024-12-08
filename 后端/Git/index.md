@@ -35,8 +35,6 @@ gitGraph
    commit
 ```
 
-
-
 ## 信息查询
 
 `git config --list`查询配置
@@ -46,22 +44,6 @@ gitGraph
 `git status`仓库状态
 
 `git log`提交记录
-
-
-
-## 分支管理
-
-`git branch -vv` 查看分支追踪关系
-
-`git branch`本地分支
-
-`git branch -r`远程分支
-
-`git branch [分支名]`
-
-`git checkout (-b) [分支名]`切换分支
-
-`git merge [被合并的分支]`合并分支
 
 ## .gitignore
 
@@ -79,7 +61,7 @@ config.ini
 *.jar
 ```
 
-`git rm --cached test.js `
+`git rm --cached test.js`
 
 >[frankiegao123](https://www.zhihu.com/people/d67b17f766b8694fe9ae0e91e4a8b538)
 >

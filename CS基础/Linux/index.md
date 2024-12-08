@@ -1,6 +1,9 @@
 ## 参考资料
 
-- https://linuxtools-rst.readthedocs.io/zh-cn/latest/base/index.html#
+- <https://linuxtools-rst.readthedocs.io/zh-cn/latest/base/index.html#>
+- <https://youmeek.gitbooks.io/linux-tutorial/content/>,<https://github.com/judasn/Linux-Tutorial>
+- <https://dunwu.github.io/linux-tutorial/#%F0%9F%93%96-%E5%86%85%E5%AE%B9>
+-
 
 ## 安装
 
@@ -18,5 +21,5 @@
 
 ## 学习资料
 
-- https://101.lug.ustc.edu.cn/
-- 
+- <https://101.lug.ustc.edu.cn/>
+-

@@ -111,17 +111,34 @@ function User(name) {
 
 # 类
 
+在js中，类是一种函数，是一种语法糖
+
+> 与直接使用function的差异：
+>
+> 1. 通过class创建的函数具有特殊的内部属性标记
+> 2. 类方法不能枚举
+> 3. 类总是使用严格模式
+
 ```js
 class Person {
   // 构造器
   constructor(){
-    
+    this.name = name;
+  }
+  // getter
+  get name(){
+    return this.name;
+  }
+  // setter
+  set name(value){
+    this.name = value
   }
 }
 ```
 
 ## 构造器
 
+使用new运行class，自动调用constructor
 new的过程：
 
 1. 在内存中创建一个新对象。
