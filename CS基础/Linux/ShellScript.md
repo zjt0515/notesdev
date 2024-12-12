@@ -18,27 +18,36 @@ date
 
 ## 变量
 
-```shell
-name1=xiaohu # =号两边不能有空格，可以加上单/双引号
-echo $name1
-echo ${name1}
+> [!caution]
+> 变量名和=之间不能有空格
+> 命名规则：字母/数字/下划线，不能以数字开头
 
-# 只读变量
-constName=shy
-readonly constName
+```shell
+my_name=xiaohu
+# 使用变量
+echo ${my_name} # 加{}是好文明
+echo $my_name
+
+# 设置只读变量
+readonly my_name
 declare -r constName
 
 # 删除变量
-unset constName
+unset my_name
 
+# 数组变量
+my_array=(1 2 3)
 ```
 
+1. String `"Hello"`
+2. int `declare -i my_int=23`
 变量类型
-自定义变量（局部变量）
-子进程不能访问的变量
-环境变量（全局变量）
-子进程可以访问的变量
-自定义变量改成环境变量：
+
+1. 自定义变量（局部变量）
+2. 子进程不能访问的变量
+3. 环境变量（全局变量）
+4. 子进程可以访问的变量
+5. 自定义变量改成环境变量：
 
 acs@9e0ebfcd82d7:~$ name=yxc  # 定义变量
 acs@9e0ebfcd82d7:~$ export name  # 第一种方法
@@ -48,28 +57,20 @@ acs@9e0ebfcd82d7:~$ declare -x name  # 第二种方法
 acs@9e0ebfcd82d7:~$ export name=yxc  # 定义环境变量
 acs@9e0ebfcd82d7:~$ declare +x name  # 改为自定义变量
 
-
-
 新开bash：bash
 
-退出子进程：exit 
+退出子进程：exit
 
+> [!tip]
+> 字符串变量
+> 单引号与双引号的区别：
+>
+> - 单引号中的内容会原样输出，不会执行、不会取变量；
+> - 双引号中的内容可以执行、可以取变量、可以出现转义字符；
 
-
-## 字符串
-
-单引号与双引号的区别：
-
-- 单引号中的内容会原样输出，不会执行、不会取变量；
-- 双引号中的内容可以执行、可以取变量；
-
-```
-name=yxc  # 不用引号
-echo 'hello, $name \"hh\"'  # 单引号字符串，输出 hello, $name \"hh\"
-echo "hello, $name \"hh\""  # 双引号字符串，输出 hello, yxc "hh"
-```
-
-
+| Desc | Way |
+| ---- | --- |
+|      |     |
 
 ```shell
 # 获取字符串长度
@@ -131,9 +132,8 @@ ${#array[*]}
 - expr会在stdout中输出结果。如果为逻辑关系表达式，则结果为真时，stdout输出1，否则输出0。
 - exit code：如果为逻辑关系表达式，则结果为真时，exit code为0，否则为1。
 
-
-
 ### 字符串表达式
+
 `length STRING`
 返回STRING的长度
 `index STRING CHARSET`
@@ -149,11 +149,14 @@ echo `expr index "$str" aWd`  # 输出7，下标从1开始
 echo `expr substr "$str" 2 3`  # 输出 ell
 
 ### 整数表达式
+
 算术表达式优先级低于字符串表达式，高于逻辑关系表达式。
 
-+ -
+- -
+
 加减运算。两端参数会转换为整数，如果转换失败则报错。
-+ */ %
+
+- */ %
 乘，除，取模运算。两端参数会转换为整数，如果转换失败则报错。
 
 () 可以改变优先级，但需要用反斜杠转义
@@ -170,3 +173,61 @@ echo `expr $a % $b` # 输出3
 echo `expr \( $a + 1 \) \* \( $b + 1 \)`  # 输出20，值为(a + 1) * (b + 1)
 ```
 
+## 流程控制
+
+```shell
+if []
+then
+  command
+elif []
+then
+  command
+else
+  command
+fi
+
+# for
+for var in item1 item2
+do
+    command
+done
+for word in $String
+do
+done
+
+# while
+while()
+do
+done
+```
+
+## 一些命令
+
+`read name` 从标准输入中读取一行，同时指定给shell变量
+
+echo
+
+```shell
+echo "fjshag"
+echo fjshag
+echo "\"fjshag\""
+echo "${my_name}"
+# 换行/不换行
+echo -e "\n\c"
+# 原样输出，使用单引号，没有转义和取变量
+echo '$so much money$'
+# 显示命令执行结果：反引号
+echo `date`
+```
+
+> [!tip]
+> echo自动添加换行符
+
+printf
+
+```shell
+
+```
+
+test: 检查某个条件是否成立
+    1

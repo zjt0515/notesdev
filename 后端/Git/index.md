@@ -35,8 +35,6 @@ gitGraph
    commit
 ```
 
-
-
 ## 信息查询
 
 `git config --list`查询配置
@@ -46,10 +44,6 @@ gitGraph
 `git status`仓库状态
 
 `git log`提交记录
-
-
-
-
 
 ## .gitignore
 

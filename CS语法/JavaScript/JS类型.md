@@ -1,14 +1,28 @@
-# 基本引用类型
+# 数据类型
 
-### 
+1. Number
+2. BigInt
+3. String
+4. Boolean
+5. null
+6. undefined
+7. Object
+8. Symbol
+
+typeof运算符 以字符串的形式返回类型
+
+> function类型属于object，但是typeof会对function区分对待
+>
+> js没有char类型
+>
+
+## 引用类型
 
 > ES中，引用类型指的是把==数据和功能组织到一起的结构==，不能与类混淆
 
-## 原始包装类型
+## 原始类型
 
-1. Boolean
-2. Number
-3. String
+除了Object都是原始类型
 
 ```js
 const bo = new Boolean(true);
@@ -16,12 +30,12 @@ const no = new Number(2);
 const s = new String("hello")
 ```
 
-| 方法         |                        |      |
-| ------------ | ---------------------- | ---- |
-| `valueOf()`  |                        |      |
-| `toString()` |                        |      |
-|              |                        |      |
-| `charAt()`   | 返回给定索引位置的字符 |      |
+| 方法         |                        |     |
+| ------------ | ---------------------- | --- |
+| `valueOf()`  |                        |     |
+| `toString()` |                        |     |
+|              |                        |     |
+| `charAt()`   | 返回给定索引位置的字符 |     |
 
 ### 字符串String
 
@@ -40,8 +54,6 @@ const s = new String("hello")
 
 ## 单例内置对象
 
-
-
 ## Date
 
 ```js
@@ -58,9 +70,33 @@ const p1 = /at/g
 const p2 = /[bc]at/i
 ```
 
+## 类型转换
 
+### 显示类型转换
 
+```js
+// 自动类型转换(隐式)
+'4' - '3' // 1
+"String" + 2 // 当+的一个操作数是字符串
+!!x // 等价于Boolean()
 
+// 显式类型转换 使用函数
+Number() // 返回数值或NaN
+String() //
+Boolean()
+```
+
+### Number()
+
+示例
+
+ ```
+ parseInt('42 cats') // 42
+ Number('42 cats') // NaN
+ Number({a: 1}) // NaN  
+ Number([1, 2, 3]) // NaN
+ Number([5]) // 5
+ ```
 
 # 集合引用类型
 
@@ -68,8 +104,6 @@ const p2 = /[bc]at/i
 
 1. 创建 new或者字面量
 2. 属性名 数值或者字符串, 数值最终还是会转为字符串
-
-
 
 > [!warning]
 >
@@ -88,8 +122,6 @@ const p2 = /[bc]at/i
 
 ## 数组Array
 
-
-
 ```js
 // 首尾增删
 arr.push()
@@ -97,8 +129,6 @@ arr.pop()
 arr.unshift()
 arr.shift()
 ```
-
-
 
 ### 搜索和位置
 
@@ -114,8 +144,6 @@ arr.shift()
 
 按照定义的断言函数搜索
 
-
-
 ### splic
 
 从start开始删除count个元素，并新增之后的元素
@@ -123,8 +151,6 @@ arr.shift()
 ```js
 arr.splice(start，deleteCount, [elem1, ..., elemN])
 ```
-
-
 
 ### slice切片
 
@@ -174,8 +200,6 @@ names.split('')
 
 ## 日期和时间
 
-
-
 ## JSON
 
 ```js
@@ -192,4 +216,3 @@ let json = JSON.stringify(student);
 > 1. 函数属性
 > 2. Symbol类型
 > 3. 存储undefined的属性
-
