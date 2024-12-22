@@ -3,7 +3,7 @@
 ## HelloWorld
 
 ```shell
-#!/bin/bash # 指定使用的shell
+#!/bin/bash # 指定使用的shell，并非注释
 
 # 单行注释
 
@@ -98,6 +98,21 @@ echo 10
 | $?         | 上一条命令的退出状态（注意不是stdout，而是exit code）。0表示正常退出，其他值表示错误 |
 | $(command) | 返回command这条命令的stdout（可嵌套）                        |
 | `command`  | 返回command这条命令的stdout（不可嵌套）                      |
+
+## 多个命令
+
+```shell
+# 无条件执行;
+date;who
+# 成功后才继续 &&
+date&&who
+# 失败时才继续 ||
+
+```
+
+
+
+
 
 ## 数组
 
@@ -200,6 +215,10 @@ while()
 do
 done
 ```
+
+### test
+
+
 
 ## 一些命令
 

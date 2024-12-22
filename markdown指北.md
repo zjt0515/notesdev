@@ -111,4 +111,4 @@ For a full list of available emoji and codes, see [the Emoji-Cheat-Sheet](https:
 
 ## 内容与格式制备
 
-1. 实战类文档：将do放在正文，what放在引用中
+1. 实战类文档：将do放在正文，what放在引用中 
