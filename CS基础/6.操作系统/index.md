@@ -17,3 +17,8 @@ https://www.bilibili.com/video/BV1mM4m1D7dG
 ## 参考文档
 
 1. https://xiaolincoding.com/os/
+
+## 期末题目讲解
+
+1. 操作系统复习题讲解https://www.bilibili.com/video/BV1634y197KE
+2. 
