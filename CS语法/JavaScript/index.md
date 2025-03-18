@@ -12,9 +12,22 @@
 
 1. https://github.com/javascript-tutorial/zh.javascript.info
 
+视频
+
+1. jonas https://www.bilibili.com/video/BV1vA4y197C7
+    1. https://github.com/jonasschmedtmann/complete-javascript-course/blob/master/11-Arrays-Bankist/starter/script.js
+
+2. 
 
 
 
+
+
+目录
+
+- [ ] 121-125 string
+- [ ] 126-139 func
+- [ ] 140-167 数组
 
 ## js引入
 

@@ -16,19 +16,78 @@ typeof运算符 以字符串的形式返回类型
 > js没有char类型
 >
 
+## Number
+
+```js
+let billion = 1e9;
+let billion = 1_000_000_000;
+let a = 0b1101;
+let b = 0o777;
+let c = 0xff;
+
+let nan = NaN;
+let inf1 = Infinity;
+let inf2= -Infinity;
+
+alert( 1e500 ); // 溢出 Infinity
+```
+
+
+
+1. 1
+2. 1.0
+3. 1.5
+4. NaN（特殊值）
+5. (-)Infinity（特殊值）
+
+> NaN
+>
+> 不等于任何东西，包括自身
+>
+> 可以通过`isNaN`函数将参数转化为Number，然后判断是否为NaN
+
+
+
+> Object.is(a,b)和a===b
+>
+> 前者可以比较NaN和NaN，返回true，同时可以区分0和-0
+
+```js
+
+// 判断是否为整数
+Number.isInteger(10);    // true
+Number.isInteger(10.0);  // true
+Number.isInteger(10.5);  // false
+Number.isInteger('10');  // false，'10' 是字符串
+Number.isInteger(NaN);   // false
+```
+
+| Number类方法 |                                                              |
+| ------------ | ------------------------------------------------------------ |
+| isNaN        | 将其参数转换为数字，然后测试它是否为 `NaN`                   |
+| isFinite     | 将其参数转换为数字，如果是常规数字而不是 `NaN/Infinity/-Infinity`，则返回 `true` |
+| isInteger    | 判断是否为整数                                               |
+
+| Math类方法 |              |                                             |
+| ---------- | ------------ | ------------------------------------------- |
+| max        | 最大值       | 强制转换为数字类型，但不会解析，结果会为NaN |
+| min        | 最小值       |                                             |
+| sqrt       | 平方根       | 使用幂等`25 ** 1/2`                         |
+| PI         | 常数π        |                                             |
+| random     | 0-1的随机数  |                                             |
+| trunc      | 截断小数部分 |                                             |
+
+### 不精确
+
+> 基于64位格式IEEE-754表示的PHP、Java、Perl、Ruby都有
+>
+> 二进制数字无法精确存储十进制中的0.1、0.2，IEEE-754 通过将数字舍入到最接近的可能数字来解决这个问题，
+
 ## 引用类型
 
 > ES中，引用类型指的是把==数据和功能组织到一起的结构==，不能与类混淆
 
-## 原始类型
-
-除了Object都是原始类型
-
-```js
-const bo = new Boolean(true);
-const no = new Number(2);
-const s = new String("hello")
-```
+## String
 
 | 方法         |                        |     |
 | ------------ | ---------------------- | --- |
@@ -37,20 +96,77 @@ const s = new String("hello")
 |              |                        |     |
 | `charAt()`   | 返回给定索引位置的字符 |     |
 
-### 字符串String
+```js
+// 定义字符串
+let single = '123';
+let double = "123";
+let backticks = `123`;
+const s = new String("hello");
 
-| 方法                       | 作用                           | 参数和返回值                                 |
-| -------------------------- | ------------------------------ | -------------------------------------------- |
-| `startsWith()`             | 判断是否包含                   | (subs, i)<br />可以指定开始搜索位置          |
-| `endsWith()`               |                                | (subs, end)<br />可以指定结束位置            |
-| `includes()`               |                                | (subs, i)                                    |
-| `trim()`                   | 返回删除前后空格符的字符串副本 | trimLeft()/trimRight()                       |
-| `repeat()`                 | 返回重复n次的拼接字符串副本    | (n)                                          |
-| `padStart()`               | 填充字符串                     | (length, string)<br />结果长度，填充的字符串 |
-| `toLowerCase()toUpperCase` | 大小写转换                     | 注：toLocalexxxCase是更通用的函数            |
-| `match()`                  | 匹配正则                       | 接收正则<br />返回一个数组                   |
-| `replace()`                | 替换字符                       | 使用正则全局标记替换字符                     |
-|                            |                                |                                              |
+// 字符串跨行
+let xxx = `
+	1
+	2
+	3
+`;
+
+// 获取字符串长度属性
+xxx.length;
+// 没有找到字符，[]返回undefined
+str[index];
+// 没有找到，返回第一个空字符
+str.charAt(index);
+// 遍历字符
+for(let char of "hello"){
+  
+}
+
+```
+
+> [!caution]
+>
+> 字符串不可修改
+>
+> ```js
+> str[0] = "z"; //error
+> 
+> str = 'h' + srt[1];
+> ```
+>
+> 
+
+
+
+### 转义字符
+
+| 字符     | 描述 |
+| -------- | ---- |
+| \n       |      |
+| \r       |      |
+| \ ', \ " |      |
+| \ \      |      |
+| \t       |      |
+| \b \f \v |      |
+| \xXX     |      |
+| \uXXXX   |      |
+
+### String方法
+
+| 方法                       | 作用                                 | 参数和返回值                                 |
+| -------------------------- | ------------------------------------ | -------------------------------------------- |
+| `indexof()`                | 从pos位置查找子字符串substr          | (substr, pos)<br />没有找到返回-1            |
+| `startsWith()`             | 判断是否包含                         | (subs, i)<br />可以指定开始搜索位置          |
+| `endsWith()`               |                                      | (subs, end)<br />可以指定结束位置            |
+| `includes()`               |                                      | (subs, i)                                    |
+| `trim()`                   | 返回删除前后空格符的字符串副本       | trimLeft()/trimRight()                       |
+| `repeat()`                 | 返回重复n次的拼接字符串副本          | (n)                                          |
+| `padStart()`               | 填充字符串                           | (length, string)<br />结果长度，填充的字符串 |
+| `toLowerCase()toUpperCase` | 大小写转换                           | 注：toLocalexxxCase是更通用的函数            |
+| `match()`                  | 匹配正则                             | 接收正则<br />返回一个数组                   |
+| `replace()`                | 替换字符                             | 使用正则全局标记替换字符                     |
+| `slice(start[,end])`       | 获取字串<br />返回start到end(不包括) | 允许负数                                     |
+| `substr(start[, length])`  | 获取子串<br />允许指定长度           | 允许start负数                                |
+| `substring(strat, end)`    |                                      | 负数视为0                                    |
 
 ## 单例内置对象
 
@@ -120,83 +236,7 @@ Boolean()
 
 > {}的含义确定：表达式上下文还是语句上下文
 
-## 数组Array
-
-```js
-// 首尾增删
-arr.push()
-arr.pop()
-arr.unshift()
-arr.shift()
-```
-
-### 搜索和位置
-
-按照严格相等搜索，必须先拿到数组中的值才能搜索
-
-1. `indexOf、lastIndexOf、includes`
-2. 参数：`data，[startIndex]`
-3. 返回值：index、boolean
-
-> indexOf和lastIndexOf：搜索顺序相反
->
-> includes：返回boolean而不是索引，是否找到至少一个
-
-按照定义的断言函数搜索
-
-### splic
-
-从start开始删除count个元素，并新增之后的元素
-
-```js
-arr.splice(start，deleteCount, [elem1, ..., elemN])
-```
-
-### slice切片
-
-顾名思义，将`[start,end)`之间的元素包装为一个新数组返回
-
-```js
-arr.slice(start, end)
-// 不加参数：返回整个副本
-arr.slice()
-```
-
-### concat拼接
-
-将参数复制到原数组的副本中，返回
-
-```js
-arr.concat(arg1, arg2...)
-```
-
-> 可以传入数组，会自动解构
-
-### forEach遍历
-
-```js
-arr.forEach(function(item, index, array){})
-```
-
-为每个元素运行一个函数
-
-### 转换数组
-
-```js
-arr.map(function(item, index, array){})
-arr.map(item => item.length)
-// 原址排序
-arr.sort(functionName)
-arr.sort((a,b) => a-b)
-// 颠倒顺序
-arr.reserve()
-// 将字符串转化为数组
-const name = names.split(', ')
-// string -> 字符数组
-names.split('')
-```
-
-> 比较函数：返回正数表示大于，返回负数表示小于
+> 
 
 ## 日期和时间
 

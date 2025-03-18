@@ -1,3 +1,41 @@
+## 默认参数
+
+```js
+const bookings = [];
+
+const createBooking = function (
+  flightNum,
+  numPassengers = 1,
+  price = 100 * numPassengers
+) {
+  // es5 方式参数默认值
+  // numPassengers = numPassengers || 1;
+  // price = price || 100;
+
+  const booking = {
+    flightNum,
+    numPassengers,
+    price
+  };
+  console.log(booking);
+  bookings.push(booking);
+};
+// 没有传递的参数，默认为undefined
+createBooking('LH123');
+createBooking('LH123', 2);
+createBooking('LH123', 2, 200);
+createBooking('LH123', undefined, 1000);
+
+```
+
+## 参数传递
+
+JS中只有值传递，没有引用传递
+
+原始类型传递值的拷贝，不会改变原来的值
+
+引用类型传递地址，会改变原来的值
+
 ## 箭头函数
 
 ```js

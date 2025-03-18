@@ -31,3 +31,9 @@ https://www.bilibili.com/medialist/detail/ml1542040207
 ## js库
 
 http://paperjs.org/tutorials/images/using-pixel-colors/
+
+## 模组/资源类网站开发
+
+1. https://www.mcmod.cn/
+2. https://www.curseforge.com/
+3. https://modrinth.com/
