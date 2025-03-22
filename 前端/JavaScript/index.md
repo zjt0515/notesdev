@@ -1,6 +1,6 @@
 ## 参考资料
 
-书籍：
+### 书籍文档
 
 1. 犀牛书
 2. 红宝书
@@ -12,12 +12,10 @@
 
 1. https://github.com/javascript-tutorial/zh.javascript.info
 
-视频
+### 视频
 
 1. jonas https://www.bilibili.com/video/BV1vA4y197C7
     1. https://github.com/jonasschmedtmann/complete-javascript-course/blob/master/11-Arrays-Bankist/starter/script.js
-
-2. 
 
 
 

@@ -1,5 +1,9 @@
 # Vue Router
 
+## 代码参考
+
+
+
 ## 介绍
 
 SPA：single page web application 单页面应用
@@ -563,8 +567,4 @@ const routes = [
   },
 ]
 ```
-
-
-
-12. 
 
