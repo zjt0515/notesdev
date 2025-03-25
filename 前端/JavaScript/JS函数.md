@@ -1,4 +1,42 @@
-## 默认参数
+## 定义函数
+
+### 函数声明
+
+函数声明提升，JS引擎先读取函数声明，再执行代码
+
+```js
+sayHi();  
+function sayHi() { 
+  console.log("Hi!"); 
+}
+```
+
+### 函数表达式
+
+没有提升，需要先赋值给一个变量，再调用
+
+```js
+// 匿名函数的函数表达式
+let functionName = function(arg0, arg1, arg2) { 
+  // 函数体  
+};
+```
+
+立即调用的函数表达式(立即调用的匿名函数)
+
+```js
+// IIFE模拟块级作用域
+(function() { 
+  // 块级作用域  
+})();
+// ES6
+```
+
+
+
+## 参数
+
+### 默认参数default parameters
 
 ```js
 const bookings = [];
@@ -28,13 +66,25 @@ createBooking('LH123', undefined, 1000);
 
 ```
 
-## 参数传递
+### 参数传递(值传递)
 
 JS中只有值传递，没有引用传递
 
 原始类型传递值的拷贝，不会改变原来的值
 
 引用类型传递地址，会改变原来的值
+
+## higher-order函数
+
+> 函数也是value，可以存储到变量中
+
+
+
+ 
+
+
+
+
 
 ## 箭头函数
 
@@ -65,10 +115,111 @@ function test(...args){
 > 在其他地方使用...arr：表示将一个可迭代对象arr展开
 > 展开到参数列表/另一个可迭代对象/浅拷贝....
 
-## 弃用？arguments
+## 函数内部
 
-可以在函数内部访问的
-一个类数组，存储了所有的函数参数值
+### arguments
+
+function关键字定义时，在函数内部访问的一个类数组对象，存储了所有的函数参数值
+
+同时还有一个callee属性，指向arguments对象所在函数的指针
+
+```js
+function factorial(num) { 
+  if (num <= 1) {  
+    return 1; 
+  } else { 
+    // 递归函数，与函数名解耦
+    return num * arguments.callee(num - 1); 
+  } 
+}
+```
+
+### this
+
+标准函数，this引用：把函数当成方法调用的上下文对象
+
+```js
+window.color = 'red';  
+let o = { 
+  color: 'blue' 
+}; 
+ 
+function sayColor() { 
+  console.log(this.color); 
+} 
+// 全局上下文调用，this指向window
+sayColor();    // 'red' 
+// 对象方法调用，this指向该对象
+o.sayColor = sayColor; 
+o.sayColor();  // 'blue'
+```
+
+箭头函数，this引用：**定义箭头函数**的上下文
+
+```js
+window.color = 'red';  
+let o = { 
+  color: 'blue' 
+}; 
+// 在window上下文中定义箭头函数
+let sayColor = () => console.log(this.color); 
+ 
+// 一旦定义固定了，和方法调用的上下文无关
+sayColor();    // 'red' 
+ 
+o.sayColor = sayColor; 
+o.sayColor();  // 'red'
+```
+
+> 在事件回调或定时回调中调用某个函数时，this值指向的并非想要的对象。此时将回调函数写成箭头函数就可以解决问题。这是因为箭头函数中的this会保留定义该函数时的上下文
+>
+> ```js
+> function King() {  
+>   this.royaltyName = 'Henry'; 
+>   // this 引用 King 的实例 
+>   setTimeout(() => console.log(this.royaltyName), 1000); 
+> } 
+> 
+> function Queen() { 
+>   this.royaltyName = 'Elizabeth'; 
+>  
+>   // this 引用 window 对象 
+>   setTimeout(function() { console.log(this.royaltyName); }, 1000); 
+> } 
+>  
+> new King();  // Henry 
+> new Queen(); // undefined
+> ```
+>
+> 
+
+### new.target
+
+## 函数对象的属性和方法
+
+### length
+
+命名参数的个数
+
+### prototype
+
+保存引用类型所有实例方法，由所有实例共享
+
+### apply(this, Array实例/aruguments)
+
+以指定的this值来调用函数
+
+主要用于控制函数调用上下文，即函数体内this值
+
+
+
+### call(this, ...argArray)
+
+以指定的this值来调用函数，区别是参数要逐个传递
+
+## 闭包closure
+
+
 
 ## 嵌套函数
 

@@ -11,9 +11,11 @@
 2. 模块级作用域
 3. 只通过http(s)工作
 
-## export default
+## export导出
 
-默认导出，无需用户提前知道模块内的变量名和函数名
+### export default 默认导出
+
+默认导出，用户无需提前知道模块内的变量名和函数名3
 
 ```js
 // 导出 out.js
@@ -32,7 +34,7 @@ import say from './out.js'
 >
 > `import { default as foo } from 'modules';`
 
-## export
+### export 命名导出
 
 1. 可以导出函数、变量、类
 2. 可以处于模块的顶层任意位置，不能出现在块级作用域
