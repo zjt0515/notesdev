@@ -2,10 +2,9 @@
 
 文档
 
-- 静态类型，变量、对象的属性都是静态的
-
 - https://github.com/ruanyf/jstraining
 - ts中文手册https://typescript.bootcss.com/classes.html
+- ts文档：https://www.tslang.cn/docs/home.html
 - https://ts.xcatliu.com/
 - https://github.com/xcatliu/typescript-tutorial/?tab=readme-ov-file
 
