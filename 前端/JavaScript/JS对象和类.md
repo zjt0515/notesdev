@@ -97,6 +97,9 @@ function User(name) {
   // 添加属性到 this
   this.name = name;
   this.isAdmin = false;
+  
+  // lian jie
+  this.__proto__ = User.protoType;
   // return this;（隐式返回）
 }
 ```
