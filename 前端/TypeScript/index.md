@@ -14,25 +14,33 @@
 
 ## 介绍
 
-基于nodejs的一个依赖库
+融合了后端面向对象思想的超级版js
+
+```shell
+// 生成package.json
+npm init -y
+// 项目安装ts
+npm install typescript -D
+// 生成tsconfig.json
+tsc --init
+```
 
 ts项目配置文件：`tsconfig.json`
 
 编译ts：`tsc index.js`,会生成对应的js文件
 
+1. 编译时静态类型检测
+2. TS特有类型和泛型
+3. d.ts声明文件
+4. 灵活性，anyscript
+
+## 环境配置
 
 
-## 类型
 
-基本类型：	
 
-1. string
-2. number
-3. boolean
 
-any类型
-表示变量可以接受任意类型的值
-对于函数参数，如果没有标注类型，默认any
+
 
 ## 类型推断
 
