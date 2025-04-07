@@ -48,11 +48,15 @@ arr.shift()
 
 ## 数组方法
 
-|                                               | mutated? |      |
-| --------------------------------------------- | -------- | ---- |
-| `slice(start?: number, end?: number)`         | n        |      |
-| `splice(start: number, deleteCount?: number)` | y        |      |
-| ``                                            |          |      |
+| 数组方法                                                     | 描述                                               | 返回值         | mutated?<br />是否改变原数组 | 额外用法             |
+| ------------------------------------------------------------ | -------------------------------------------------- | -------------- | ---------------------------- | -------------------- |
+| `slice(start?: number, end?: number)`                        | 提取子数组                                         | 子数组         | NO                           | 不写参数用于获取副本 |
+| `splice(start: number, deleteCount?: number)`                | 删除子数组                                         | 被删除的子数组 | Y                            |                      |
+| `splice(start: number, deleteCount: number, ...items: string[])` | 删除元素的同时，添加元素<br />一般deleteC ount = 0 |                | Y                            |                      |
+| `concat(...items: ConcatArray<T>[]):`                        | 连接数组                                           | 连接后的新数组 | NO                           |                      |
+| `sort(compareFn?: ((a: string, b: string) => number) `       | 数组排序                                           | 排序后的原数组 | Y                            |                      |
+| `reverse()`                                                  | 翻转                                               | 被改变的数组   | Y                            |                      |
+| `join(separator?:T)`                                         | 数组元素链接为字符串                               | 连接后的字符串 | NO                           |                      |
 
 ### splice拼接
 

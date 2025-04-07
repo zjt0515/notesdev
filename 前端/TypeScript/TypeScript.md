@@ -1,10 +1,4 @@
-## 类型断言
-
-```ts
-str as string
-```
-
-> 类型断言只能够「欺骗」TypeScript 编译器，无法避免运行时的错误，反而滥用类型断言可能会导致运行时错误：
+> 
 
 ### 三种暴露方法
 
@@ -55,8 +49,4 @@ export type Persons = Array<PersonInter>
 
 
 
-### 泛型
-
-
-
-### 自定义类型
+### 

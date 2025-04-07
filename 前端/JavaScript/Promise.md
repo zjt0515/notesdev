@@ -20,27 +20,48 @@ build a promise
 
 
 
+> 一个由 executor 完成的工作只能有一个结果或一个 error
+> 即只能调用一次resolve或者一次reject，剩余的都会被忽略
 
-
-### promise对象
+### promise属性
 
 ![image-20250322135826181](./images/image-20250322135826181.png)
 
-属性，不同的状态
-
 1. state
-    1. pending
+    1. pending：初始值
     2. settled
-        1. fulfilled
-        2. rejected
+        1. fulfilled：调用resolve后
+        2. rejected：调用reject后
 2. result
-    1. undefined
-    2. value 
-    3. error
+    1. undefined：初始值
+    2. value：调用resolve(value)后
+    3. error：调用reject(error)后
 
-### consume a promise
+> state和result都是内部属性，外部不能访问
 
 
+
+### consume（then、catch）
+
+```js
+promise.then(
+    function(result){},
+    function(error){},
+)
+promise.catch(function(error){})
+promise.then(null, function(error){})
+```
+
+then
+第一个函数参数在resolved且接收到value后执行
+第二个函数参数在rejected且接收到error后执行
+
+catch
+接收的函数参数在rejected且接收到error后执行
+
+### finally
+
+​	
 
 ## 同步Synchronous
 

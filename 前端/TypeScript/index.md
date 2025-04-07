@@ -2,7 +2,7 @@
 
 文档
 
-- https://github.com/ruanyf/jstraining
+-  **TypeScript 教程 b ryf**https://wangdoc.com/typescript/intro
 - ts中文手册https://typescript.bootcss.com/classes.html
 - ts文档：https://www.tslang.cn/docs/home.html
 - https://ts.xcatliu.com/
@@ -27,7 +27,7 @@ tsc --init
 
 ts项目配置文件：`tsconfig.json`
 
-编译ts：`tsc index.js`,会生成对应的js文件
+
 
 1. 编译时静态类型检测
 2. TS特有类型和泛型
@@ -35,6 +35,20 @@ ts项目配置文件：`tsconfig.json`
 4. 灵活性，anyscript
 
 ## 环境配置
+
+### 编译ts
+
+```
+// 1
+ts-node index.ts
+// 2
+tsc index.ts
+node index.js
+// 3
+"scripts": {
+  "start": "ts-node yourFile.ts"
+}
+```
 
 
 
@@ -67,41 +81,6 @@ let product: {
 ```
 
 
-
-使用type定义类型，提高代码复用性
-
-```ts
-// 类型名一般大写开头？？
-type Product {
-	// 必须包含的属性
-	title: string;
-	price: number;
-	// 可选的对象属性
-	desc?: string;
-}
-```
-
-使用interface定义类型结构
-
-```ts
-interface Product {
-	// 必须包含的属性
-	title: string;
-	price: number;
-	// 可选的对象属性
-	desc?: string;
-}
-```
-
-
-
-> [!tip]
->
-> type和interface的区别
->
-> interface容易拓展，type不方便拓展
->
-> 
 
 ### interface
 
