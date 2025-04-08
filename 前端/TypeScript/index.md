@@ -34,7 +34,7 @@ ts项目配置文件：`tsconfig.json`
 3. d.ts声明文件
 4. 灵活性，anyscript
 
-## 环境配置
+## 环境配置/工具链
 
 ### 编译ts
 
@@ -50,7 +50,9 @@ node index.js
 }
 ```
 
+### ts-node
 
+TS执行引擎，在nodejs环境直接运行ts代码
 
 
 
