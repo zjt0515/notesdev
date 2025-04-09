@@ -22,7 +22,11 @@
 
 ## 装饰器
 
+
+
 ## nest cli命令
+
+
 
 ```shell
 npm i -g @nestjs/cli
@@ -39,17 +43,8 @@ nest g s demo
 nest g resource user
 ```
 
-## Restful风格
+## 模板
 
-一个接口，不同请求方式实现不同功能
-使用/而不是?
+https://github.com/nestjs/awesome-nestjs
 
-```http
-// 增删改查
-http://localhost:8080/api/get_list/1
-```
-
-- 查询GET
-- 提交POST
-- 更新PUT PATCH
-- 删除DELETE
+- 
