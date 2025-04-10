@@ -138,6 +138,8 @@ function factorial(num) {
 
 标准函数，this引用：把函数当成方法调用的上下文对象
 
+换句话说，在标准函数中定义的this值暂时是不确定的，只有通过对象调用了才知道
+
 ```js
 window.color = 'red';  
 let o = { 
