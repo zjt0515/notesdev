@@ -161,6 +161,11 @@ export const routes = [
     name: '新建笔记',
     component: AddMarkdownPage,
   },
+    {
+    path: '/add/markdown',
+    name: '新建笔记',
+    component: () => import('@/views/add/AddMarkdownPage.vue'),
+  },
 ]
 ```
 

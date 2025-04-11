@@ -79,9 +79,21 @@ npx tailwindcss init -p
 
 ### Vite 配置路径别名
 
-在`vite.config.js`vite配置文件
+```
+pnpm i -D @types/node
+```
+
+```json
+// tsconfig.app.json
+{
+	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"]
+}
+```
+
+
 
 ```js
+// vite.config.ts
 import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
@@ -95,6 +107,8 @@ export default defineConfig({
   }
 })
 ```
+
+
 
 # Vue工具链
 
