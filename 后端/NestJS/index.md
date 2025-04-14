@@ -20,6 +20,35 @@
 
 ### 数据库搭建
 
+docker
+
+```shell
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql
+docker ps
+
+```
+
+docker-compose 针对配置文件
+
+```yml
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    # (this is just an example, not intended to be a production configuration)
+
+```
+
+`docker-compose up -d`
+
+打印`docker inspect [imageName]`
+
 ## 装饰器
 
 
@@ -43,7 +72,25 @@ nest g s demo
 nest g resource user
 ```
 
+## 最佳实践
 
+src
+
+1. core
+2. common
+    1. middleware
+    2. interceptors
+    3. guard
+3. user
+4. store
+
+
+
+1. https://github.com/CatsMiaow/nestjs-project-structure
+
+风格指南：
+
+https://v2.angular.cn/docs/ts/latest/guide/style-guide
 
 ## hot reload
 
@@ -51,6 +98,4 @@ nest g resource user
 
 ## 模板
 
-https://github.com/nestjs/awesome-nestjs
-
-- 
+1. https://github.com/nestjs/awesome-nestjs
