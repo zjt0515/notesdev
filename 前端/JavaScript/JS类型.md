@@ -168,6 +168,24 @@ for(let char of "hello"){
 | `substr(start[, length])`  | 获取子串<br />允许指定长度           | 允许start负数                                |
 | `substring(strat, end)`    |                                      | 负数视为0                                    |
 
+## Boolean
+
+假值：
+
+1. 0, -0
+2. "" 空字符串
+3. null
+4. undefined
+5. NaN
+
+真值：
+
+1. 1, -1
+2. "hello" 非空字符串
+3. [] {} 空数组 空对象
+4. function(){}
+5. Inf
+
 ## 单例内置对象
 
 ## Date

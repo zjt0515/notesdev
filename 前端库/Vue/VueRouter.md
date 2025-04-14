@@ -298,7 +298,7 @@ const routes = [
 
 
 
-## vue-router内置组件整理
+## VueRouter内置组件
 
 ```vue
 // 配置导航

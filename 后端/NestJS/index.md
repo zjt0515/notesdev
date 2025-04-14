@@ -43,6 +43,12 @@ nest g s demo
 nest g resource user
 ```
 
+
+
+## hot reload
+
+对比代码变化，不需要重新编译整个项目
+
 ## 模板
 
 https://github.com/nestjs/awesome-nestjs
