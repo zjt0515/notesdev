@@ -10,7 +10,7 @@
 
 显式声明接受的props
 
-`defineProps()`传入参数：字符串数组或对象
+`defineProps()`传入参数：**字符串数组或对象**
 返回值：一个对象 ，包含传递给组件的所有props
 
 ```js
@@ -20,12 +20,15 @@ console.log(props.title)
 console.log(props.context)
 // 限制类型
 const x = defineProps<{list:Persons}>()
-// ts+setup 对象，类型标注
+// TS+setup 泛型类型标注，不用
 const props = defineProps({
   greetingMessage: String
   likes?: string
 })
-// 默认值写法
+const props = defineProps<{
+    title: String
+}>()
+//默认值写法
 const props = withDefaults(defineProps<Props>(), {
   value: () => '',
   language: 'javascript',
@@ -33,6 +36,17 @@ const props = withDefaults(defineProps<Props>(), {
 },
 // 使用props
  props.key
+    
+/**
+ * vue2
+*/
+props: {
+    menus: {
+        type: Array as PropType<Array<MenuItem>>,
+        default: () => [] as MenuItem[]
+	}
+    title: String	
+}
 ```
 
 >defineProps不需要显式导入
