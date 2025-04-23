@@ -1,5 +1,3 @@
-> 
-
 ### 三种暴露方法
 
 1. 默认暴露
@@ -48,5 +46,3 @@ export type Persons = Array<PersonInter>
 ```
 
 
-
-### 
