@@ -9,6 +9,7 @@
 npm init vite@latest my-element -- --template vue-ts
 cnpm i -S vue-router@next
 cnpm i -S element-plus
+cnpm i -D sass sass-loader
 ```
 
 

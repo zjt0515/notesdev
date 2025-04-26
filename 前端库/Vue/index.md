@@ -80,7 +80,7 @@ npx tailwindcss init -p
 ### Vite 配置路径别名
 
 ```
-pnpm i -D @types/node
+ 
 ```
 
 ```json
