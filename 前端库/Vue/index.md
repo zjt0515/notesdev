@@ -16,6 +16,11 @@
 ```shell
 npm create vite@latest
 npm create vue@latest
+
+npm i vue-router pinia axios
+
+// css
+npm install -D sass
 ```
 
 ![image-20240525200235148](./images/image-20240525200235148.png)
