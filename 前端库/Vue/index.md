@@ -14,7 +14,7 @@
 ### 基于 [vite](https://vitejs.cn) 创建
 
 ```shell
-npm create vite@latest
+ 
 npm create vue@latest
 
 npm i vue-router pinia axios
@@ -82,11 +82,7 @@ npx tailwindcss init -p
 
 ## 配置杂项
 
-### Vite 配置路径别名
-
-```
- 
-```
+### Vite 配置路径别名@
 
 ```json
 // tsconfig.app.json
@@ -94,8 +90,6 @@ npx tailwindcss init -p
 	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"]
 }
 ```
-
-
 
 ```js
 // vite.config.ts
