@@ -19,7 +19,7 @@ SFC组件命名规范`PascalCase `
 
 ```vue
 // 这种方法必须要使用setup
-<script setup>
+<script setup>c
 import ComponentA from './ComponentA.vue'
 </script>
 ```
@@ -39,7 +39,22 @@ import Posts from '@/components/posts.vue'
 </script>
 ```
 
-
+> Vue2使用组件(局部注册)
+>
+> ```js
+> import ComponentA from './ComponentA'
+> import ComponentC from './ComponentC'
+> 
+> export default {
+>   components: {
+>     ComponentA,
+>     ComponentC
+>   },
+>   // ...
+> }
+> ```
+>
+> 
 
 
 
