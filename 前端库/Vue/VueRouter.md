@@ -1,5 +1,9 @@
 # Vue Router
 
+## 代码参考
+
+
+
 ## 介绍
 
 SPA：single page web application 单页面应用
@@ -157,6 +161,11 @@ export const routes = [
     name: '新建笔记',
     component: AddMarkdownPage,
   },
+    {
+    path: '/add/markdown',
+    name: '新建笔记',
+    component: () => import('@/views/add/AddMarkdownPage.vue'),
+  },
 ]
 ```
 
@@ -289,7 +298,7 @@ const routes = [
 
 
 
-## vue-router内置组件整理
+## VueRouter内置组件
 
 ```vue
 // 配置导航
@@ -563,8 +572,4 @@ const routes = [
   },
 ]
 ```
-
-
-
-12. 
 

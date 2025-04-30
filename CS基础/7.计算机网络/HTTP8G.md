@@ -1,7 +1,20 @@
+# HTTP
+
 ## HTTP
 
->  应用层协议
-> TCPIP模型中的应用层
+### 无状态protocol
+
+不保存请求和响应的通信状态：能够更快处理大量事务，可伸缩性
+
+可以用Cookie管理状态
+
+### 应用层协议
+
+TCPIP模型中的应用层
+
+### URL定位
+
+
 
 超文本传输协议，HyperText Transfer Protocol
 
@@ -12,6 +25,24 @@
 5. 无状态协议
 6. 互联网核心协议
 
+## HTTP报文
+
+
+
+1. 
+
+### 请求报文
+
+1. 请求行：请求方法/URL/版本
+2. 首部字段：
+3. 请求体：
+
+```http
+GET/HTTP/1.1
+Host: hacker.jp
+User-Agent: Mozilla/5.0
+```
+
 ## HTTP状态码
 
 1. 1xx 提示信息
@@ -19,6 +50,31 @@
 3. 3xx 重定向
 4. 4xx 客户端错误
 5. 5xx 服务器错误
+
+### 2xx成功
+
+1. 200 OK
+2. 204NC No Content 无资源可返回
+3. 206PC Partial Content 范围请求
+
+### 3xx重定向
+
+1. 301MP Moved Permanently永久重定向
+2. 302F Found 临时重定向
+3. 303SO See Other希望客户以GET方法重定向到另一个URL
+4. 304NM Not Modified 未符合条件(**和重定向无关**)
+5. 307TP Temporary Redirect临时重定向
+
+### 4xx 客户端错误
+
+1. 401U Unauthorized 认证失败
+2. 403F Forbidden 不允许访问
+3. 404NF Not Found 无法找到请求资源
+
+### 5xx服务器错误
+
+1. 500ISE Internal Server Error 服务器端错误
+2. 503SU Service Unavailable 超负载/停机维护
 
 ## HTTP字段
 

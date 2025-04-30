@@ -6,6 +6,10 @@ git remote add origin [url]
 git push -u origin main
 ```
 
+> 解决win和linux平台换行符不匹配问题：
+>
+> win：git config --global core.autocrlf false
+
 ## 初始化
 
 `git init`

@@ -1,0 +1,90 @@
+## 类和原型prototype
+
+原型/委托delegation
+
+所有对象都和某个原型对象联系 
+
+对象委托他们的行为给原型   
+
+### 原型继承
+
+> [!warning]
+>
+> 如何理解继承和原型继承 ？
+>
+> 在java中，继承一般指的是子类继承父类
+>
+> js中，原型继承指的是，原型对象包含所有 链接到该原型的对象的属性和方法所有对象可以使用 对应的原型对象的属性和方法
+>
+> 例如：数组对象都可以访问Array.prototype对象里的所有方法，实际上这些方法没有在数组本身上定义
+
+
+
+> [!ques]
+>
+> 1. 如何创建原型
+> 2. 如何将对象和原型链接起来
+> 3. 没有class的情况如何创建新的对象 
+>
+> 
+>
+> 1. 构造函数，使用函数创建对象
+> 2. es6 class，现代方式，但本质上还是构造函数的语法糖Syntatctic sugar  
+> 3. Object.create()，最简单最直接，但不常用
+
+### 构造函数new function
+
+不能使用箭头函数，它没有自己的this
+
+
+
+下面是一个使用构造函数定义Class的算法
+
+```js
+cosnt Person = function(name){
+ 	// 定义类字段 	  
+    this.name = name;
+}
+// 定义实力方法
+Person.prototype.eat = function(){
+    console.log("eating")
+}
+// 定义类字段
+// 因为是类专属的而不是实力的，通常不使用this
+Person.MIN_AGE = 0;
+// 类方法
+Person.parse
+// 定义类的私有方法
+Person._shit = xxx
+```
+
+> [!tip]
+>
+> JS的实力方法必须使用this关键字来存取实力字段
+>
+> JS中没有final，常量依靠大写命名暗示
+>
+> 没有private，使用`_xxx`命名
+
+###  using prototype
+
+每个函数都有prototype属性
+
+实例对象的原型本质上是构造函数的原型属性
+
+```js
+console.log(me.__proto__ === Person.prototype); // true
+```
+
+1. 原型对象是类的唯一标识：两个对象继承同一个原型对象，就是同一个类
+2. 
+
+## 实现子类
+
+```js
+```
+
+
+
+
+

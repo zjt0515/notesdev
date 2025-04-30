@@ -14,8 +14,13 @@
 ### 基于 [vite](https://vitejs.cn) 创建
 
 ```shell
-npm create vite@latest
+ 
 npm create vue@latest
+
+npm i vue-router pinia axios
+
+// css
+npm install -D sass
 ```
 
 ![image-20240525200235148](./images/image-20240525200235148.png)
@@ -77,11 +82,17 @@ npx tailwindcss init -p
 
 ## 配置杂项
 
-### Vite 配置路径别名
+### Vite 配置路径别名@
 
-在`vite.config.js`vite配置文件
+```json
+// tsconfig.app.json
+{
+	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"]
+}
+```
 
 ```js
+// vite.config.ts
 import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
@@ -95,6 +106,8 @@ export default defineConfig({
   }
 })
 ```
+
+
 
 # Vue工具链
 

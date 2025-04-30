@@ -139,11 +139,15 @@ toRef(person,'age') 指定person对象中的age属性，转化为ref
 - 每个计算属性都是一个函数
 - 模板中直接使用函数名访问计算属性的value
 
+> [!caution]
+>
+> 回调函数参数必须要有返回值，不然默认返回undefined
+
 ```ts
 // 接受一个不带参数的回调函数
 let fullName = computed(()=>{
     return firstName.value.slice(0, 1).toUpperCase() + firstName.value.slice(1) + '-' + lastName.value
-  })
+})
 ```
 
 ```ts
