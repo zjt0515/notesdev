@@ -78,6 +78,10 @@ npx tailwindcss init -p
 
 按照官网安装后，再完成按需导入配置
 
+### 整合bootstrap
+
+https://getbootstrap.com/docs/5.3/getting-started/vite/
+
 
 
 ## 配置杂项

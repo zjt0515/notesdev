@@ -28,7 +28,7 @@ app.use(router)
 
 解决办法：historyAPI
 
-## 定义router
+## 创建路由`createRouter()`
 
 ```js
 //@/router/index.js：路由管理器
@@ -48,14 +48,6 @@ const routes = [
   { path: '/about', component: AboutView },
 ]
 ```
-
-createRouter
-
-1. history → 配置router处理url变化的方式
-    1. createWebHistory
-2. 
-
-
 
 > [!note]
 >
@@ -79,11 +71,12 @@ createRouter
 @/pages(views)/admin/AdminView：存放后台页面
 @/pages(views)/frontend/：前台页面
 
-### 路由器工作模式
+### 路由器工作模式`history`
 
 ```ts
-history:createWebHistory()
-hash:createWebHashHistory()
+createWebHistory()
+createWebHashHistory()
+createMemoryHistory()
 ```
 
 - history模式
@@ -92,6 +85,10 @@ hash:createWebHashHistory()
 - hash模式
     - 兼容性更好，不需要服务端处理路径
     - #不美观而且SEO优化方面相对较差(适合于后台管理项目)
+- memory模式
+    - 适合node和ssr环境
+    - 不会自动触发初始导航，无历史记录
+
 
 ## 定义路由记录routes
 
