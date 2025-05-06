@@ -1,4 +1,4 @@
-# Vue Router
+# 	Vue Router
 
 ## 代码参考
 
@@ -252,7 +252,7 @@ import { RouterLink, useRouter } from 'vue-router';
 直接传入member会提示类型，可以直接用any，但不会检查对象属性
 可以写一个接口来检查
 
-## 动态路由匹配
+## 动态路由
 
 ```ts
 {
@@ -277,7 +277,7 @@ import { RouterLink, useRouter } from 'vue-router';
 
 
 
-## 路由页面组件渲染
+### 路由页面组件渲染
 
 > 需求：
 > 将`/users/johnny` 和 `/users/jolyne` 这样的 URL 映射到同一个路由。
