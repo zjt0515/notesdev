@@ -13,7 +13,7 @@
     // 监听对象
   	data,
     // 监听回调
-    (new, old) => {}
+    (newData, old) => {}
     // 配置参数对象
     {
     	deep:,
