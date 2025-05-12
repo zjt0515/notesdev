@@ -97,7 +97,8 @@ https://getbootstrap.com/docs/5.3/getting-started/vite/
 
 ```js
 // vite.config.ts
-import { fileURLToPath, URL } from "node:url";
+//import { fileURLToPath, URL } from "node:url";
+import path from 'path'
 
 export default defineConfig({
   plugins: [
@@ -105,13 +106,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      // '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': path.resolve(__dirname, './src') // 路径别名
     }
   }
 })
 ```
-
-
 
 # Vue工具链
 

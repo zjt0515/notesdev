@@ -11,8 +11,10 @@
 <script>
 	export default {
     data(){
-      isShow: false,
-			countDown: null,
+      return {
+        isShow: false,
+				countDown: null,
+      }
     },
     props: ['appId']
     computed: {
