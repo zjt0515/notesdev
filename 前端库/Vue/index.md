@@ -9,13 +9,12 @@
 
 [vue官网](https://cn.vuejs.org)
 
-## 创建工程
+## 创建项目
 
 ### 基于 [vite](https://vitejs.cn) 创建
 
 ```shell
- 
-npm create vue@latest
+ npm create vue@latest
 
 npm i vue-router pinia axios
 
@@ -59,28 +58,18 @@ createApp(App).mount('#app')//创建一个应用实例
 </style>
 ```
 
-
-
-## 整合Tailwind CSS
+### vuecli
 
 ```shell
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
 ```
 
-……懒得搞了
 
 
 
-## 整合Element Plus
 
-[ElementPlus](https://element-plus.org/zh-CN/guide/installation.html)
 
-按照官网安装后，再完成按需导入配置
 
-### 整合bootstrap
 
-https://getbootstrap.com/docs/5.3/getting-started/vite/
 
 
 
@@ -113,16 +102,37 @@ export default defineConfig({
 })
 ```
 
-# Vue工具链
+## Vue工具链
 
 参考资料https://devtools.vuejs.org/
 
-## 项目脚手架
+### 项目脚手架
 
 - Vite
 - VueCLI
 
-## 格式化工具
+### 格式化工具
 
 - [Vue - Official](https://github.com/vuejs/language-tools) VS Code 插件为 Vue 单文件组件提供了开箱即用的格式化功能。
-- 除此之外，[Prettier](https://prettier.io/) 也提供了内置的 Vue 单文件组件格式化支持。
+- [Prettier](https://prettier.io/) 也提供了内置的 Vue 单文件组件格式化支持。
+- eslint-plugin-vuehttps://eslint.vuejs.org/
+- js标准规则https://standardjs.com/rules
+
+
+
+## 样式解决方案
+
+### 组件库
+
+Element Plus：[ElementPlus](https://element-plus.org/zh-CN/guide/installation.html)按照官网安装后，再完成按需导入配置
+
+### css框架
+
+bootstrap：https://getbootstrap.com/docs/5.3/getting-started/vite/
+
+整合Tailwind CSS
+
+```shell
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```

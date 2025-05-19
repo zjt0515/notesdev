@@ -17,7 +17,7 @@ let empty = [];
 let arr = [1, 2];
 let misc = [1.1, true, 'a'];
 let arr2 = [base, base + 1];
-// 省略值为undefined，允许可选的结尾逗号
+// 省略值为empty item，允许可选的结尾逗号
 let undefinedArr = [,,1,]
 
 let a = new Array();
@@ -27,6 +27,21 @@ arr.pop()
 arr.unshift()
 arr.shift()
 ```
+
+### 空位Empty
+
+空位产生
+
+空位特性
+
+1. 遍历时自动被跳过：forEach, reduce...
+2. 基于值计算时，值为undefined：
+3. 被迭代时，值为undefined：
+4. join和tosString
+
+### 稀疏数组
+
+有空位元素的数组
 
 
 
@@ -57,6 +72,33 @@ arr.shift()
 | `sort(compareFn?: ((a: string, b: string) => number) `       | 数组排序                                           | 排序后的原数组 | Y                            |                      |
 | `reverse()`                                                  | 翻转                                               | 被改变的数组   | Y                            |                      |
 | `join(separator?:T)`                                         | 数组元素链接为字符串                               | 连接后的字符串 | NO                           |                      |
+| `indexOf(value)`                                             |                                                    |                |                              |                      |
+| ``                                                           |                                                    |                |                              |                      |
+
+### indexOf
+
+查找某个值的索引
+
+不能找到NaN和空位
+
+### includes
+
+查找是否包含某个值
+
+对于NaN，空位，undefined都能找到
+
+### 查找元素
+
+这4个都是短路操作，即找到就返回
+
+| 方法        |      |      |
+| ----------- | ---- | ---- |
+| `some`      |      |      |
+| `find`      |      |      |
+| `findIndex` |      |      |
+| `every`     |      |      |
+
+
 
 ### splice拼接
 
@@ -112,16 +154,29 @@ names.split('')
 
 > 比较函数：返回正数表示大于，返回负数表示小于
 
+### 副作用方法
+
+| 方法            | 描述 |      |
+| --------------- | ---- | ---- |
+| `pop/push`      |      |      |
+| `shift/unshift` |      |      |
+| `reverse()`     | 反转 |      |
+| `sort()`        | 排序 |      |
+| `fill`          | 填充 |      |
+| `copyWithin`    |      |      |
+
+sort默认按照ASCII码排序，因此10会排在2前面
+
 ## 遍历数组
 
 1. for of 循环
-2. forEach数组方法
+2. 数组方法forEach
 
 ```js
 for (const movement of movements) {
 	
 }
-movements.forEach(function(movement){
+movements.forEach(function(value, index){
 })
 ```
 
@@ -170,3 +225,24 @@ currencies.forEach(function(value, key, map){
 > set的forEach方法的回调函数参数中，第二个参数和第一个参数重复
 >
 > 可以使用_名称，意味着是一个throwaway variable，代表占位符，没有意义
+
+
+
+## 类数组对象
+
+特征：
+
+1. 有length属性
+2. 没有数组方法
+
+例子：
+
+1. NodeList
+2. HTMLCollection
+3. DOMTokenList
+
+## 数组性能优化
+
+### push vs concat
+
+push性能更好

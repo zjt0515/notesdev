@@ -36,6 +36,10 @@ let functionName = function(arg0, arg1, arg2) {
 
 ## 参数
 
+1. 定义时不指定形参类型
+2. 调用时不对实参类型检查
+3. 调用时不检查传入参数个数
+
 ### 默认参数default parameters
 
 ```js
@@ -74,27 +78,7 @@ JS中只有值传递，没有引用传递
 
 引用类型传递地址，会改变原来的值
 
-## higher-order函数
-
-> 函数也是value，可以存储到变量中
-
-
-
- 
-
-
-
-
-
-## 箭头函数
-
-```js
-function fun() {
-  // func body  
-}
-```
-
-## ...rest
+### ...rest
 
 rest参数
 实现任意数量参数的函数
@@ -117,9 +101,10 @@ function test(...args){
 
 ## 函数内部
 
-### arguments
+### arguments实参对象
 
-function关键字定义时，在函数内部访问的一个类数组对象，存储了所有的函数参数值
+function关键字定义时，在函数内部可访问类数组arguments，存储了所有函数实际传入的参数值
+箭头函数没有arguments
 
 同时还有一个callee属性，指向arguments对象所在函数的指针
 

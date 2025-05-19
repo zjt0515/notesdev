@@ -2,6 +2,7 @@
 
 1. https://vue-js.com/learn-vue/start
 1. https://github.com/vuejs/vue
+1. https://ustbhuangyi.github.io/vue-analysis/v2/prepare/
 
 ## 准备工作
 
@@ -10,7 +11,7 @@
 
 
 ## 静态语法检查器Flow
- 
+
 
 
 
