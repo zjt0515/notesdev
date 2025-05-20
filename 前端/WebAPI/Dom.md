@@ -38,20 +38,18 @@ DOM树结构：标签为元素节点，构成一个树状结构
 
 
 
-| 节点类型            | 描述                      | 示例             |
-| ------------------- | ------------------------- | ---------------- |
-| 抽象类Node          | 所有节点类型都继承Node    |                  |
-|                     |                           |                  |
-| Document            | 文档节点                  | 全局变量document |
-| Element             | 最常用类型，DOM元素基础类 | div              |
-| 抽象类CharacterData |                           |                  |
-|                     |                           |                  |
-| HTMLElement         |                           |                  |
-|                     |                           |                  |
-| Text                | 元素内部文本，文本节点    |                  |
-| Comment             | 注释                      |                  |
-|                     |                           |                  |
-|                     |                           |                  |
+| NodeType值 | 节点类型            | 描述                      | 示例             |
+| ---------- | ------------------- | ------------------------- | ---------------- |
+|            | Node接口            | 所有节点类型都继承Node    |                  |
+|            |                     |                           |                  |
+| 9          | Document            | 文档节点                  | 全局变量document |
+| 1          | Element             | 最常用类型，DOM元素基础类 | div              |
+|            | 抽象类CharacterData |                           |                  |
+|            |                     |                           |                  |
+|            | HTMLElement         |                           |                  |
+|            |                     |                           |                  |
+| 3          | Text                | 元素内部文本，文本节点    | 我是文本         |
+| 8          | Comment             |                           |                  |
 
 dom元素对象常见属性
 
@@ -63,12 +61,18 @@ dom元素对象常见属性
 
 > 修改outerHTML会在dom中用新的值替换，但是旧的获取的值不会改变，如果还要操作替换的dom，需要重新获取dom
 
-## DOM机制
+### HTMLCollection/NodeList
 
-1. 自动修正
-2. 如果一些内容存在于 HTML 中，那么它也必须在 DOM 树中。
+HTMLCollection：Element子类集合
 
-## 文本节点/注释节点
+NodeList：所有Node子类集合
+
+获取节点的子节点：
+
+1. .children，返回HtmlCollection
+2. .childNodes，返回NodeList
+
+### 文本节点/注释节点
 
 | prop           | 描述     |      |
 | -------------- | -------- | ---- |
@@ -78,27 +82,93 @@ dom元素对象常见属性
 
 
 
+## 
+
+## DOM机制
+
+1. 自动修正
+2. 如果一些内容存在于 HTML 中，那么它也必须在 DOM 树中。
+
 ## DOM操作
 
 每个HTML标签及其内容都是对象，可以通过js访问修改
 
 ### 获取dom元素
 
-| dom                                   | 描述                           | 返回值         |
-| ------------------------------------- | ------------------------------ | -------------- |
-| `getElementById("")`                  | 根据id选择唯一元素             |                |
-| `getElementByClassName("className")`  | 根据class选择元素              | HTMLCollection |
-|                                       |                                |                |
-| `querySelector("#container")`         | 通过选择器选择第一个匹配的元素 | Element        |
-| `document.querySelectorAll(".title")` | 选择全部元素                   | NodeList       |
+| dom                                               | 描述                           | 返回值              |                                |
+| ------------------------------------------------- | ------------------------------ | ------------------- | ------------------------------ |
+| `getElementById("")`                              | 根据id选择唯一元素             | 单个元素Element     |                                |
+| `getElementByClassName("className [className2]")` | 根据class选择元素              | 动态 HTMLCollection |                                |
+| `getElementByName("name")`                        | 根据name属性选择               | NodeList            | 可以查询不能解析的节点         |
+| `getElementByTagName("tagName")`                  | 根据标签名查询                 | 元素集合            |                                |
+| `querySelector("#container")`                     | 通过选择器选择第一个匹配的元素 | 单个元素Element     |                                |
+| `document.querySelectorAll(".title")`             | 选择全部元素                   | 静态NodeList        | 可能返回非预期值（:scope解决） |
 
-### 创建dom元素
+特殊查询属性
 
-| api                           | 描述 | 返回值 |
-| ----------------------------- | ---- | ------ |
-| `document.createElement("");` |      |        |
-|                               |      |        |
-|                               |      |        |
+```js
+document.all
+document.images
+document.forms
+document.scripts
+document.links
+document.fonts
+```
+
+查询伪元素：不可以
+只能通过`window.getComputeStyle(className, "before")["content"]`获取对应的样式
+
+
+
+### 节点遍历
+
+1. for/while
+2. NodeList.prototype.forEach
+3. 转为数组遍历：Array.from
+
+```js
+for(int i = 0; i < xxx.length; i++){
+  
+}
+```
+
+遍历子元素
+
+1. children/childNodes
+2. NodeIterator vs TreeWalker
+
+```js
+const iterator = document.createNodeIterator(
+  document.getElementById("id"),
+  NodeFilter.SHOW_ELEMENT,
+  {
+    acceptNode(node){
+      return node.tagName === 'LI' ? NodeFilter,
+			FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+    }
+  }
+)
+```
+
+
+
+### 创建node
+
+| api                                       | 描述         | 返回值 |
+| ----------------------------------------- | ------------ | ------ |
+| `document.createElement("div")`           | 创建         |        |
+| `document.createTextNode/Comment("文本")` |              |        |
+| `new Text("文本")`                        | 直接new      |        |
+| `document.body.append()`                  | 挂载         |        |
+| `node.appendChild()`                      | 尾插         |        |
+| `node.insertBefore()`                     | 前插         |        |
+| `node.replaceChild()`                     | 替换         |        |
+| `node.textContent()`                      | 替换内容节点 |        |
+| `element.after()`                         |              |        |
+| `element.before()`                        |              |        |
+| `element.append()`                        |              |        |
+| `element.after()`                         |              |        |
+| `element.after()`                         |              |        |
 
 
 
@@ -126,6 +196,8 @@ document.body.appendChild(s)
 | outerHTML        | innerHTML+元素本身=>string |                        |
 | nodeName/tagName | 标签名                     | tagName仅适用于Element |
 |                  |                            |                        |
+
+### 删除node
 
 
 
@@ -181,35 +253,4 @@ elem.removeEventListener(event, handler, [phase]);
 ```
 
 事件处理器中的this值：当前元素
-
-## BOM
-
-Browser Object Model 浏览器对象模型
-
-### window
-
-window 浏览器实例
-
-- ES中的Global对象
-- 浏览器窗口的JS接口
-
-
-
-1. 通过var声明的全局变量和函数，成为window对象的属性和方法
-
-### location
-
-http://foouser:barpassword@www.wrox.com:80/WileyCDA/?q=javascript#contents
-
-| 属性 | 值   | 说明 |
-| ---- | ---- | ---- |
-| hash |      |      |
-|      |      |      |
-|      |      |      |
-|      |      |      |
-|      |      |      |
-|      |      |      |
-|      |      |      |
-|      |      |      |
-|      |      |      |
 

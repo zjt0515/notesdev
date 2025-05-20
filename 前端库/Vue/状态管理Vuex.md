@@ -19,6 +19,12 @@
         └── products.js   # 产品模块
 ```
 
+## store
+
+
+
+
+
 ## createState
 
 ```js

@@ -27,10 +27,6 @@ TCPIP模型中的应用层
 
 ## HTTP报文
 
-
-
-1. 
-
 ### 请求报文
 
 1. 请求行：请求方法/URL/版本
@@ -43,6 +39,36 @@ Host: hacker.jp
 User-Agent: Mozilla/5.0
 ```
 
+### 响应报文
+
+响应头
+
+| 响应头字段       |                                        |                                           |
+| ---------------- | -------------------------------------- | ----------------------------------------- |
+| Date             | 响应时间                               |                                           |
+| Connection       |                                        |                                           |
+| Keep-Alive       |                                        |                                           |
+| Content-Encoding | 内容编码方式                           | gzip                                      |
+| Content-Length   | 内容字节大小                           |                                           |
+| Content-Type     | 内容类型                               | multipart/form-data<br />application/json |
+| Server           | 服务端软件信息                         |                                           |
+| Set-Cookie       | 服务端向客户端返回的cookie，写入客户端 |                                           |
+
+
+
+```http
+HTTP/1.1 200 OK
+Date:
+Server:
+Last-Modified:
+ETag:
+Accept-Ranges:
+Content-Length:
+Content-Type:
+```
+
+
+
 ## HTTP状态码
 
 1. 1xx 提示信息
@@ -51,30 +77,36 @@ User-Agent: Mozilla/5.0
 4. 4xx 客户端错误
 5. 5xx 服务器错误
 
+### 1xx信息响应
+
+101 协议切换
+
 ### 2xx成功
 
-1. 200 OK
-2. 204NC No Content 无资源可返回
-3. 206PC Partial Content 范围请求
+1. 200 OK 请求成功
+2. 204 No Content 请求成功，不返回内容
+3. 206 Partial Content 范围请求成功
 
 ### 3xx重定向
 
-1. 301MP Moved Permanently永久重定向
-2. 302F Found 临时重定向
-3. 303SO See Other希望客户以GET方法重定向到另一个URL
-4. 304NM Not Modified 未符合条件(**和重定向无关**)
-5. 307TP Temporary Redirect临时重定向
+1. **301** Moved Permanently永久重定向
+2. **302** Found 临时重定向
+3. 303 See Other希望客户以GET方法重定向到另一个URL
+4. **304** Not Modified 资源未修改(**和重定向无关**)
+5. 307 Temporary Redirect临时重定向
 
-### 4xx 客户端错误
+### 4xx 客户端错误(400-405)
 
-1. 401U Unauthorized 认证失败
-2. 403F Forbidden 不允许访问
-3. 404NF Not Found 无法找到请求资源
+1. 400 请求无法被理解
+2. 401 Unauthorized 认证失败
+3. 403 Forbidden 禁止访问
+4. 404 Not Found 无法找到请求资源
+5. 405 禁止使用该方法
 
 ### 5xx服务器错误
 
-1. 500ISE Internal Server Error 服务器端错误
-2. 503SU Service Unavailable 超负载/停机维护
+1. 500 Internal Server Error 服务器端异常
+2. 503 Service Unavailable 服务不可达，超负载/停机维护
 
 ## HTTP字段
 
@@ -143,25 +175,44 @@ Get是安全且幂等的，Post请求是不安全且不幂等的
 
 协商缓存：与服务端协商之后，判断是否使用本地缓存
 
-## HTTP1.1/2/3
+## HTTP版本0.9/1.0/1.1/2/3
+
+0.9(1991)
+
+1. 仅支持GET
+2. 不包含HTTP Header
+3. 没有状态码
+
+1.0(1996)
+
+1. 发送时添加协议版本
+2. 添加状态码
+3. 引入HTTP Header
 
 1.0 -> 1.1
 
-1. 长连接方式改善性能开销
+1. 长连接方式（连接复用）改善性能开销，多个请求可以复用一个tcp连接 
 2. 支持管道网络传输，请求发送不用等待，减少响应时间
+3. 支持分块响应
+   1. 状态码206
+   2. 请求头：Range
+   3. 响应头：Content-Range
 
-
+4. 新的缓存控制机制cache-control eTag
+5. Host请求头
 
 1.1 -> 2
 
 1. 头部压缩
-2. 二进制格式
+2. 二进制帧格式
 3. 并发传输
 4. 服务器主动推送资源
 
 
 
-## HTTP VS HTTPS
+## HTTPS
+
+HTTP Secure 超文本传输安全协议
 
 1. 在TCP三次握手之后，HTTPS还需进行SSL/TLS的握手过程，才能进入加密报文传输
 2. HTTPS默认端口并非80，是443
