@@ -1,4 +1,8 @@
-## 背景
+## 字体font
+
+
+
+## 背景background
 
 background属性
 
@@ -18,10 +22,10 @@ background属性
 渐变 linear-gradient函数
 
 1. 角度
-    1. to bottom right
-    2. 1/pi
-    3. 0.25turn
-    4. 100grad
+   1. to bottom right
+   2. 1/pi
+   3. 0.25turn
+   4. 100grad
 2. 起始颜色
 3. 终止颜色
 

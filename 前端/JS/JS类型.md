@@ -1,13 +1,6 @@
 # 数据类型
 
-1. Number
-2. BigInt
-3. String
-4. Boolean
-5. null
-6. undefined
-7. Object
-8. Symbol
+1. 
 
 typeof运算符 以字符串的形式返回类型
 
@@ -16,7 +9,25 @@ typeof运算符 以字符串的形式返回类型
 > js没有char类型
 >
 
-## Number
+## 基础类型
+
+1. number
+2. bigint
+3. string
+4. boolean
+5. null
+6. undefined
+7. Symbol
+
+### 基础类型的对象包装器
+
+1. String
+2. Number
+3. Boolean
+4. Symbol
+5. BigInt
+
+### number
 
 ```js
 let billion = 1e9;
@@ -77,24 +88,14 @@ Number.isInteger(NaN);   // false
 | random     | 0-1的随机数  |                                             |
 | trunc      | 截断小数部分 |                                             |
 
-### 不精确
+### String
 
-> 基于64位格式IEEE-754表示的PHP、Java、Perl、Ruby都有
->
-> 二进制数字无法精确存储十进制中的0.1、0.2，IEEE-754 通过将数字舍入到最接近的可能数字来解决这个问题，
-
-## 引用类型
-
-> ES中，引用类型指的是把==数据和功能组织到一起的结构==，不能与类混淆
-
-## String
-
-| 方法         |                        |     |
-| ------------ | ---------------------- | --- |
-| `valueOf()`  |                        |     |
-| `toString()` |                        |     |
-|              |                        |     |
-| `charAt()`   | 返回给定索引位置的字符 |     |
+| 方法         |                        |      |
+| ------------ | ---------------------- | ---- |
+| `valueOf()`  |                        |      |
+| `toString()` |                        |      |
+|              |                        |      |
+| `charAt()`   | 返回给定索引位置的字符 |      |
 
 ```js
 // 定义字符串
@@ -136,8 +137,7 @@ for(let char of "hello"){
 > 
 
 
-
-### 转义字符
+ 转义字符
 
 | 字符     | 描述 |
 | -------- | ---- |
@@ -150,7 +150,7 @@ for(let char of "hello"){
 | \xXX     |      |
 | \uXXXX   |      |
 
-### String方法
+ String方法
 
 | 方法                       | 作用                                 | 参数和返回值                                 |
 | -------------------------- | ------------------------------------ | -------------------------------------------- |
@@ -168,7 +168,11 @@ for(let char of "hello"){
 | `substr(start[, length])`  | 获取子串<br />允许指定长度           | 允许start负数                                |
 | `substring(strat, end)`    |                                      | 负数视为0                                    |
 
-## Boolean
+5. 
+
+## 
+
+### Boolean
 
 假值：
 
@@ -185,6 +189,16 @@ for(let char of "hello"){
 3. [] {} 空数组 空对象
 4. function(){}
 5. Inf
+
+### 不精确
+
+> 基于64位格式IEEE-754表示的PHP、Java、Perl、Ruby都有
+>
+> 二进制数字无法精确存储十进制中的0.1、0.2，IEEE-754 通过将数字舍入到最接近的可能数字来解决这个问题，
+
+## 引用类型
+
+> ES中，引用类型指的是把==数据和功能组织到一起的结构==，不能与类混淆
 
 ## 单例内置对象
 

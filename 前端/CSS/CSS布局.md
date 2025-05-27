@@ -1,8 +1,38 @@
 # CSS常用布局
 
+## CSS流式布局
+
+正常流式文档流：内联元素从左边开始一个接一个地显示，块元素从顶部开始向下显示并移动页面。
+
+脱离正常文档流：
+
+1. position
+2. float
+3. 
+
+溢出：内容超过容器范围
+控制溢出：
+
+```css
+.box{
+  overflow: hidden;
+  // overflow: scroll/auto;
+}
+```
+
+
+
+## 定位position
+
+
+
 只关注布局整体，对于具体的属性用法请参看附录
 
 https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html
+
+
+
+## z-index
 
 
 ## 浮动
@@ -24,7 +54,7 @@ https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html
 > }
 > ```
 
-## Flex布局 :rainbow_flag:
+## Flex布局
 
 弹性容器FlexContainer`display: flex`
 

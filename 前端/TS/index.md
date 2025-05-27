@@ -21,8 +21,14 @@
 npm init -y
 // 项目安装ts
 npm install typescript -D
+// 全局安装
+npm i -g typesciprt
+// check tsc 
+tsc -v
 // 生成tsconfig.json
 tsc --init
+// 将ts文件编译为js文件
+tsc script.ts
 ```
 
 ts项目配置文件：`tsconfig.json`
@@ -36,25 +42,22 @@ ts项目配置文件：`tsconfig.json`
 
 ## 环境配置/工具链
 
-### 编译ts
+### tsc
+
+typescript compiler
 
 ```
-// 1
-ts-node index.ts
-// 2
 tsc index.ts
 node index.js
-// 3
-"scripts": {
-  "start": "ts-node yourFile.ts"
-}
 ```
 
 ### ts-node
 
 TS执行引擎，在nodejs环境直接运行ts代码
 
-
+```
+ts-node index.ts
+```
 
 
 

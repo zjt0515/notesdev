@@ -1,17 +1,24 @@
-## 同步Synchronous
+## 同步和异步概念
+
+### 同步Synchronous
 
 1. 大部分代码都是同步的
 2. 同步代码一行一行执行
 3. 每行代码都等待前一行完成
 4. 一行需要长时间运行的代码就会阻塞代码的正常运行
 
-## 异步Async
+### 异步Async
 
 coordinating behavior of a program
 
-异步代码， 都需要耗时：
+没有得到结果之前，可以继续执行后续代码，
+异步任务完成后，一般通过回调通知调用者
 
-1. setTimeout
+异步代码牵扯到多个线程
+
+异步代码， 一般都需要耗时：
+
+1. `setTimeout(fn, n)`：ns后运行时将fn推到消息队列上等待执行
 2. setInterval
 3. Ajax/Fetch
 4. 事件绑定
@@ -83,6 +90,19 @@ console.log(3)
 > 5. 循环查找回调队列，如有则移动到调用栈执行，
 > 6. 然后继续循环查找
 
+## 异步编程模式
+
+为了让后续代码能够使用 x，异步执行的函数需要在更新 x 的值以后通知其他代码。
+
+```js
+let x = 3;
+setTimeout(() => x = x + 4, 1000);
+```
+
+设计一个能够知道 x 什么时候可以读取的系统是非常难的。
+
+
+
 ## 回调callback 
 
 将函数作为参数传递给另一个函数，在合适的时候调用这个函数
@@ -93,11 +113,36 @@ function f(callback){
 }
 ```
 
+回调函数的缺点：
 
+1. 高度耦合，维护差
+2. 不能直接return
 
+## 事件驱动
 
+> 优点：
+>
+> 1. 去耦合
+> 2. 便于模块化实现
+>
+> 缺点：
+>
+> 1. 运行流程不清晰
+> 2. 代码阅读不便
 
 ## Promise
+
+现代异步编程的核心，将嵌套的回调变成链式调用，本质上还是回调
+
+> 优点：
+>
+> 1.链式调用，流程清晰
+>
+> 缺点：
+>
+> 1. 代码冗余，看起来不简洁
+> 2. 无法取消promise
+> 3. 错误需要通过回调函数捕获
 
 作为异步操作的未来结果的一个占位符，未来值的容器
 
@@ -108,19 +153,21 @@ build a promise
 > 一个由 executor 完成的工作只能有一个结果或一个 error
 > 即只能调用一次resolve或者一次reject，剩余的都会被忽略
 
-### promise属性
+### promise.state
 
 ![image-20250322135826181](./images/image-20250322135826181.png)
 
-1. state
-    1. pending：初始值
-    2. settled
-        1. fulfilled：调用resolve后
-        2. rejected：调用reject后
-2. result
-    1. undefined：初始值
-    2. value：调用resolve(value)后
-    3. error：调用reject(error)后
+1. 等待状态 pending：初始值
+1. 成功态 fulfilled：调用resolve后
+1. 失败态 rejected：调用reject后
+
+
+
+### promise.result
+
+1. undefined：初始值
+2. value：调用resolve(value)后
+3. error：调用reject(error)后
 
 > state和result都是内部属性，外部不能访问
 
@@ -135,6 +182,8 @@ promise.then(
 )
 promise.catch(function(error){})
 promise.then(null, function(error){})
+promise.all()
+promise.
 ```
 
 then
@@ -146,11 +195,17 @@ catch
 
 ### finally
 
-​	
+
+
+## Generator
+
+可以控制函数执行
 
 ## async/await
 
-
+> 语义更好
+>
+> async蝴蝶效应
 
 ```js
 async functikon fn() { return 100 }

@@ -1,23 +1,25 @@
 ## 参考资料
 
-### 书籍文档
-
-1. 犀牛书
-2. 红宝书
+### 文档
 
 1. https://es6.ruanyifeng.com/#docs/array
 2. https://liaoxuefeng.com/books/javascript/quick-start/index.html
 3. https://zh.javascript.info/
-1. https://wangdoc.com/javascript/basic/
+4. https://wangdoc.com/javascript/basic/
+5. https://github.com/javascript-tutorial/zh.javascript.info
+6. ECMA：https://262.ecma-international.org/15.0/index.html
 
-1. https://github.com/javascript-tutorial/zh.javascript.info
 
 ### 视频
 
 1. jonas https://www.bilibili.com/video/BV1vA4y197C7
     1. https://github.com/jonasschmedtmann/complete-javascript-course/blob/master/11-Arrays-Bankist/starter/script.js
 
+### 书籍
 
+
+1. 犀牛书
+2. 红宝书
 
 
 
