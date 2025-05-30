@@ -1,3 +1,12 @@
+# git
+
+文档教程
+
+1. https://www.bootcss.com/p/git-guide/
+1. https://docs.github.com/en/get-started/git-basics/managing-remote-repositories
+1. https://www.w3schools.com/git/git_push_to_remote.asp
+
+
 ```
 git init
 git add .
@@ -10,13 +19,32 @@ git push -u origin main
 >
 > win：git config --global core.autocrlf false
 
-## 初始化
+## git proxy
 
-`git init`
+```bash
+git config --global https.proxy http://127.0.0.1:7890
+git config --global https.proxy https://127.0.0.1:7890
+```
 
-`git add .`添加到暂存区
 
-`git commit -m ["note"]`
+
+## 本地初始化
+
+```bash
+// 新建仓库
+git init
+// git clone
+git clone /path/clone/a/repo
+git clone usename@host
+// 添加到缓冲区
+git add <filename>
+// 提交改动
+git commit -m '提交信息'
+// 推送
+git push origin master
+```
+
+
 
 `git branch -M main`修改分支名
 
@@ -38,6 +66,8 @@ gitGraph
    commit
    commit
 ```
+
+
 
 ## 信息查询
 

@@ -37,4 +37,46 @@ background属性
 
 ## 阴影
 
- 
+## border边框
+
+### border边框
+
+```css
+// 简写属性
+border: border-width border-style border-color
+```
+
+border-style: 
+
+1. none/hidden
+2. solid/double 单双实线
+3. dotteddashed
+4. inset/outset 陷入突出
+
+### border-radius外边框圆角
+
+```css 
+// 简写属性
+border:  border-top-left-radius border-top-right-radius border-bottom-right-radius  border-bottom-left-radius
+```
+
+## outline轮廓
+
+```css
+// 简写属性
+outline: outline-width outline-style outline-color
+```
+
+## 功能性
+
+### user-select选中
+
+1. none
+2. auto
+3. text
+4. all
+5. contain
+
+```css
+```
+
