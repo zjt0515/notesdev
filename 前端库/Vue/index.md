@@ -24,6 +24,8 @@ npm install -D sass
 
 ![image-20240525200235148](./images/image-20240525200235148.png)
 
+## 项目结构
+
 | 目录/文件         | 作用       |      |
 | ----------------- | ---------- | ---- |
 | index.html        | 入口文件   |      |
@@ -75,7 +77,7 @@ createApp(App).mount('#app')//创建一个应用实例
 
 ## 配置杂项
 
-### Vite 配置路径别名@
+### 配置路径别名@
 
 ```json
 // tsconfig.app.json
@@ -84,10 +86,13 @@ createApp(App).mount('#app')//创建一个应用实例
 }
 ```
 
+vite
+
+
 ```js
 // vite.config.ts
-//import { fileURLToPath, URL } from "node:url";
 import path from 'path'
+import {join} from 'path'
 
 export default defineConfig({
   plugins: [
@@ -95,12 +100,37 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // '@': fileURLToPath(new URL('./src', import.meta.url))
       '@': path.resolve(__dirname, './src') // 路径别名
+      // '@': path.join(__dirname, '/src')
     }
   }
 })
 ```
+
+```ts
+// vite.config.ts
+import { fileURLToPath, URL } from 'node:url'
+
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueDevTools from 'vite-plugin-vue-devtools'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [
+    vue(),
+    vueDevTools(),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    },
+  },
+})
+
+```
+
+
 
 ## Vue工具链
 

@@ -1,3 +1,9 @@
+# 数据库
+
+数据库排名参考：https://db-engines.com/en/ranking
+
+
+
 ## DBMS
 
 SQL：Structured Query Language 操作关系型数据库的语言
@@ -8,11 +14,20 @@ SQL：Structured Query Language 操作关系型数据库的语言
 
 - 关系表的设计就是要把信息分解成多个表，一类数据一个表
 
+
+
+## 数据库安装
+
+```Mysql	
+```
+
+docker
+
 ## 启动
 
 `net start mysql` 启动服务
 
-## 用户
+### 登录
 
 `mysql -u<UserName> -p` 登录
 
@@ -30,35 +45,7 @@ SQL：Structured Query Language 操作关系型数据库的语言
 
 列是否区分大小写？
 
-### DDL1
 
-数据定义语言，定义数据库对象(数据库，表，字段)
-
-数据库操作
-
- 显示所有数据库 `show databases;`
-
-创建数据库 `create database (if not exists) 库名;`
-
-切换数据库`use 库名`
-
-显示当前数据库 `select database();` 
-
-删除数据库 `drop database (if exists) 库名`
-
-查询当前数据库所有表 `show tables;`
-
-
-
-数据表操作
-
-查询表结构 `desc 表名;`
-
-查询建表语句 `show create table 表名;`
-
-修改表名 `rename table 旧表名 to 新表名;`
-
-删除表 `drop table (if exists) 表名`
 
 ## Linux
 
@@ -74,3 +61,49 @@ update user set host='%' where user ='root';
 
 配置文件： `/etc/mysql/mysql.conf.d/mysqld.cnf`
 
+## 关系型数据库
+
+1. 易于维护、使用方便、支持复杂计算的查询	
+2. 读写性能差，灵活性差
+3. 各类业务系统、管理系统、安全性要求高的场景
+
+### 关系模型
+
+1. 一对一
+2. 一对多
+3. 多对多
+
+### ER图
+
+> Entity Relation Digram 实体关系图
+
+1. 表名
+2. key、类型、属性
+3. 关联关系(连线)
+
+ERD设计工具
+
+1. Navicat
+2. dbDesigner
+3. QuickDBD
+
+```mermaid
+erDiagram
+school{
+
+}
+```
+
+
+
+数据库参考：open.yesapi.cn/list.html
+
+## 非关系型数据库
+
+1. 易于拓展，大文件存储，查询速度快
+2. 复杂计算、联合查询效率低
+3. 场景：多格式&海量数据、统计排行
+
+## ORM
+
+Object Relation map对象关系映射
