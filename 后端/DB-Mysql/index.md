@@ -73,7 +73,7 @@ update user set host='%' where user ='root';
 2. 一对多
 3. 多对多
 
-### ERD图
+### ER图
 
 > Entity Relation Digram 实体关系图
 
@@ -86,6 +86,15 @@ ERD设计工具
 1. Navicat
 2. dbDesigner
 3. QuickDBD
+
+```mermaid
+erDiagram
+school{
+
+}
+```
+
+
 
 数据库参考：open.yesapi.cn/list.html
 
