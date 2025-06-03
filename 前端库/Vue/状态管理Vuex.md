@@ -21,6 +21,13 @@
 
 ## store
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+>>>>>>> Stashed changes
 ## createState
 
 ```js

@@ -1,8 +1,14 @@
 # Ajax
 
+<<<<<<< Updated upstream
 Asynchronous JS And XML 异st步js和xml
 
 视图、多种技术的结合，无页面刷新的数据获取，实现懒加载、动态加载
+=======
+Asynchronous JS And XML 异步js和xml
+
+多种技术的结合，无页面刷新的数据获取，实现懒加载、动态加载
+>>>>>>> Stashed changes
 HTMLCSSJS DOM，XML，XHR(XMLHttpRequest)，Fetch，axios是基于xhr的封装
 
 没有浏览历史，不能回退。存在跨域问题(不同服务之间的请求)。SEO不友好(爬不到？。

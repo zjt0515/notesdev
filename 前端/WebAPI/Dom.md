@@ -75,10 +75,25 @@ classDiagram
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     Node <|-- Element
     Node <|-- Text
     Node <|-- Document
     Element "1" o-- "1" DOMTokenList
+=======
+| NodeType值 | 节点类型            | 描述                      | 示例             |
+| ---------- | ------------------- | ------------------------- | ---------------- |
+|            | Node接口            | 所有节点类型都继承Node    |                  |
+|            |                     |                           |                  |
+| 9          | Document            | 文档节点                  | 全局变量document |
+| 1          | Element             | 最常用类型，DOM元素基础类 | div              |
+|            | 抽象类CharacterData |                           |                  |
+|            |                     |                           |                  |
+|            | HTMLElement         |                           |                  |
+|            |                     |                           |                  |
+| 3          | Text                | 元素内部文本，文本节点    | 我是文本         |
+| 8          | Comment             |                           |                  |
+>>>>>>> Stashed changes
 
 ```
 
@@ -139,6 +154,7 @@ dom元素对象常见属性
 
 > 修改outerHTML会在dom中用新的值替换，但是旧的获取的值不会改变，如果还要操作替换的dom，需要重新获取dom
 
+<<<<<<< Updated upstream
 ### Element
 
  ### Document
@@ -166,14 +182,6 @@ var xmlDoc = parser.parseFromString(``)
 ### HTMLCollection/NodeList
 
 HTMLCollection：Element子类集合
-
-=======
-### HTMLCollection/NodeList
-
-HTMLCollection：Element子类集合
-
->>>>>>> Stashed changes
-NodeList：所有Node子类集合
 
 获取节点的子节点：
 
@@ -208,16 +216,7 @@ NodeList：所有Node子类集合
 | `querySelector("#container")`                     | css选择器选择第一个匹配的元素 | 单个元素Element          |                                |
 | `document.querySelectorAll(".title")`             | css选择器                     | 静态NodeList             | 可能返回非预期值（:scope解决） |
 =======
-| dom                                               | 描述                           | 返回值              |                                |
-| ------------------------------------------------- | ------------------------------ | ------------------- | ------------------------------ |
-| `getElementById("")`                              | 根据id选择唯一元素             | 单个元素Element     |                                |
-| `getElementByClassName("className [className2]")` | 根据class选择元素              | 动态 HTMLCollection |                                |
-| `getElementByName("name")`                        | 根据name属性选择               | NodeList            | 可以查询不能解析的节点         |
-| `getElementByTagName("tagName")`                  | 根据标签名查询                 | 元素集合            |                                |
-| `querySelector("#container")`                     | 通过选择器选择第一个匹配的元素 | 单个元素Element     |                                |
-| `document.querySelectorAll(".title")`             | 选择全部元素                   | 静态NodeList        | 可能返回非预期值（:scope解决） |
-特殊查询属性
-
+=======
 ```js
 document.all
 document.images
@@ -229,6 +228,8 @@ document.fonts
 
 查询伪元素：不可以
 只能通过`window.getComputeStyle(className, "before")["content"]`获取对应的样式
+
+特殊查询属性
 
 ### 节点遍历
 
@@ -310,12 +311,15 @@ document.body.appendChild(s)
 ### 删除node
 
 
+
 ## dom树操作
 
 1. 新增节点
 2. 获取子元素列表
 3. 获取父元素
 4. 删除子元素
+
+
 
 
 ## 事件监听
@@ -371,7 +375,6 @@ elem.removeEventListener(event, handler, [phase]);
 
 事件处理器中的this值：当前元素
 
-<<<<<<< Updated upstream
 ## Dom性能优化
 
 ### dom查询缓存
