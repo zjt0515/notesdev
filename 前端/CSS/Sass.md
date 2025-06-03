@@ -18,15 +18,50 @@ Sass:
 
 Scss保留原始的css外观，可读性更好
 
+### 注释
+
+```scss
+// 单行注释
+/*
+多行注释
+*/
+```
+
 
 
 ## @rules
 
 ### @forward
 
+### @debug
+
+```scss
+@debug <exp>
+```
+
+查看变量/表达式的值
 
 
 ## 变量
+
+> [!tip]
+>
+> 使用`-/_`连接符定义的同名变量为同一变量
+>
+> ```scss
+> $test-var: 14px;
+> $test_var: 16px;
+> .test{
+>   font-size: $test-var; // 16px
+> }
+> ```
+>
+> 全局变量:
+>
+> 1. 定义在全局作用域
+> 2. 使用`!global`
+
+
 
 定义变量
 
@@ -47,6 +82,43 @@ body {
 ### !default
 
  *仅当*变量未定义或其值为 [`null`](https://sass-lang.com/documentation/values/null) 时，才会为该变量赋值。否则，将使用现有值
+
+> [!tip]
+>
+> css和sass变量的区别：
+>
+> - css变量针对不同元素可以有不同的值，sass变量一次只能有一个值
+> - css变量时声明式的，修改会影响之前的使用，sass变量是命令式的，修改不会影响之前的使用
+> - 
+
+### 值
+
+1. number
+2. string
+3. color
+4. list
+5. map
+6. boolean
+7. null
+8. calculations
+9. function
+10. mixin
+
+```scss
+// 来自css
+$number: 12 12px;
+$string:  "Helvetica Neue" bold;
+$color: #fff blue rgb(1,1,1)  hsl(1,2,3);
+$list: 1 1 1 1 [1, 1, 1, 1];
+// sass专属
+$boolean: true;
+$null: null;
+$map:;
+$func-ref:;
+```
+
+## #{} 插值
+
 
 
 
@@ -107,6 +179,14 @@ and or not
 }
 ```
 
+### 参数
+
+1. 按位置顺序传递
+2. 按名称传递
+
+```scss
+```
+
 
 
 ## mixin
@@ -157,4 +237,6 @@ and or not
 ```scss
 @use 'xxx'
 ```
+
+## map
 

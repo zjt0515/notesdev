@@ -21,16 +21,11 @@
 
 ## store
 
-
-
-
-
 ## createState
 
 ```js
+
 ```
-
-
 
 ## State
 
