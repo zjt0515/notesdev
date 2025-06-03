@@ -1,6 +1,12 @@
-## 
+## VueUse
 
 https://vueuse.org/
+
+```
+pnpm install @vueuse/core
+```
+
+
 
 ## 处理cookie
 

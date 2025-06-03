@@ -10,6 +10,14 @@ prettier --write \"src/**/*.ts\" \"test/**/*.ts\"
 "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
 ```
 
+## prettier配置
+
+```
+{
+
+}
+```
+
 
 
 ## eslint-plugin-prettier
