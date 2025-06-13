@@ -49,6 +49,39 @@ tab组件flex样式实现
     },...
   ]
 }
-
 ```
+
+song
+
+```json
+{
+  id: 123212,
+  mid: "0023sad232",
+  name: "",
+  singer: "",
+  duration: 300,
+  url: "http://...",
+  pic: "",
+  album: "",
+}
+```
+
+
+
+## 播放器内核组件
+
+### 歌曲播放/暂停
+
+### 歌曲前进/后退
+
+
+
+### 增强：播放模式切换
+
+在player/use-mode.js实现，利用hook函数拆分功能 
+
+1. 根据state展示不同的播放模式icon
+2. 封装changeMode Action，改变播放模式、歌曲列表，固定当前歌曲不变
+
+### 增强：歌曲收藏
 
